@@ -63,7 +63,7 @@ else if ($exp[0] == "3" && ($exp[6]) && (!$exp[7])){
 }
 else if ($exp[0] == "3" && (($exp[7])) && (!$exp[8])){
 	$store["Salary"] = $exp[7];
-    if ((int)$exp[5] > 0) {
+    if ((int)$exp[7] > 0) {
         $response = "CON Please enter your Education \n";
     } else {
         $response = "END Sorry you entered Invalid Salary \n";
