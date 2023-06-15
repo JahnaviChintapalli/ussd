@@ -74,12 +74,18 @@ else if ($exp[0] == "3" && (($exp[8])) && (!$exp[9])){
     $response = "CON Please Enter Your Age  \n";
 }
 else if ($exp[0] == "3" && ($exp[9]) && (!$exp[10])){
-    $response = "CON Please Select the Sum Insured \n";
-    $response .= "1.25,00,000 \n";
-    $response .= "2.50,00,000 \n";
-    $response .= "3.1,00,00,000 \n";
-    $response .= "3.2,00,00,000 \n";
+	$num = (int)$exp[9];
     $store["Age"] = $exp[9];
+    if($num <= 18 || $num >= 80){ //adult so >18
+        $response = "END Sorry you are not eligible for insurance";
+    }
+    else {
+    	$response = "CON Please Select the Sum Insured \n";
+    	$response .= "1.25,00,000 \n";
+    	$response .= "2.50,00,000 \n";
+    	$response .= "3.1,00,00,000 \n";
+    	$response .= "3.2,00,00,000 \n";
+    }
 }
 else if ($exp[0] == "3" && $exp[10] == "1" && (!$exp[11])) {
 	$response = "CON Top 5 quotes for You \n";
