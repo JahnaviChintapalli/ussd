@@ -69,31 +69,35 @@ else if ($exp[0] == "3" && (($exp[7])) && (!$exp[8])){
         $response = "END Sorry you entered Invalid Salary \n";
     } 
 }
-else if ($exp[0] == "3" && ($exp[8]) && (!$exp[9])){
+else if ($exp[0] == "3" && (($exp[8])) && (!$exp[9])){
+	$store["Education"] = $exp[8];
+    $response = "CON Please Enter Your Age  \n";
+}
+else if ($exp[0] == "3" && ($exp[9]) && (!$exp[10])){
     $response = "CON Please Select the Sum Insured \n";
     $response .= "1.25,00,000 \n";
     $response .= "2.50,00,000 \n";
     $response .= "3.1,00,00,000 \n";
     $response .= "3.2,00,00,000 \n";
-    $store["Education"] = $exp[8];
+    $store["Age"] = $exp[9];
 }
-else if ($exp[0] == "3" && $exp[9] == "1" && (!$exp[10])) {
+else if ($exp[0] == "3" && $exp[10] == "1" && (!$exp[11])) {
 	$response = "CON Top 5 quotes for You \n";
     $store["SumInsured"] = "2500000" ;
 }
-else if ($exp[0] == "3" && $exp[9] == "2" && (!$exp[10])) {
+else if ($exp[0] == "3" && $exp[10] == "2" && (!$exp[11])) {
 	$response = "CON Top 5 quotes for You \n";
     $store["SumInsured"] = "5000000" ;
 }
-else if ($exp[0] == "3" && $exp[9] == "3" && (!$exp[10])) {
+else if ($exp[0] == "3" && $exp[10] == "3" && (!$exp[11])) {
 	$response = "CON Top 5 quotes for You \n";
     $store["SumInsured"] = "10000000" ;
 }
-else if ($exp[0] == "3" && $exp[9] == "4" && (!$exp[10])) {
+else if ($exp[0] == "3" && $exp[10] == "4" && (!$exp[11])) {
 	$response = "CON Top 5 quotes for You \n";
     $store["SumInsured"] = "20000000" ;
 }
-else if ($exp[0]=="3" && ($exp[10])&& (!$exp[11])){
+else if ($exp[0]=="3" && ($exp[11])&& (!$exp[12])){
     $response = "CON Confirmation for policy booking \n" ;
     $response .= "1.Yes \n" ;
     $response .= "2.No \n";
