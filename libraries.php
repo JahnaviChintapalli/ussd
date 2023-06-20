@@ -19,8 +19,11 @@ function repeat($store, $phoneNumber, $leadId) {
     while($count){
         $quotes = lifeQuotes($store, $phoneNumber, $leadId);
         $count = $count-1;
+        if(count($quotes) >= 5) {
+            return $quotes;
+        }
         if($count)sleep($interval);
-        else{
+        if(!$count){
             return $quotes;
         }
     }
@@ -31,31 +34,33 @@ function lifeQuotes($store, $phoneNumber, $leadId) {
     // if(!$leadId)$leadId = leadLife($store, $phoneNumber);
     $apiUrl = 'https://leadmiddlewarestaging.insurancedekho.com/api/life/v1/quotes?'; 
 
-    $jsonData = ["leadId"=> $leadId,
-    "planType"=> "term",
-    "payType"=> "regular_pay",
-    "returnType"=> "lump_sum",
-    "paymentMode"=> "monthly",
-    "source"=> "B2C",
-    "subSource"=> "INSURANCE-DEKHO",
-    "medium"=> "INSURANCE-DEKHO",
-    "dob"=> $store["date_of_birth"],
-    "gender"=> "M",
-    "isTobacco"=> $store["is_smoke_tobacco"],
-    "annualIncome"=> $store["annual_income"],
-    "annualIncomeDisplayName"=> $store["annual_income_display_name"],
-    "occupation"=> $store["occupation"],
-    "educationQualification"=> $store["education_qualification"],
-    "sumAssured"=> 20000000,
-    "coverUpto"=> 50,
-    "customerName"=> $store["name"],
-    "occupationDisplayName"=> $store["occupation_display_name"],
-    "educationQualificationDisplayname"=> $store["education_qualification_display_name"],
-    "subPlanType"=> "base",
-    "isdetailsUpdated"=> 0,
-    "pincode"=> "122010",
-    "currentStep"=> "quote",
-    "isNri"=> 0];
+    $jsonData = [
+        "leadId"=> $leadId,
+        "planType"=> "term",
+        "payType"=> "regular_pay",
+        "returnType"=> "lump_sum",
+        "paymentMode"=> "monthly",
+        "source"=> "B2C",
+        "subSource"=> "INSURANCE-DEKHO",
+        "medium"=> "INSURANCE-DEKHO",
+        "dob"=> $store["date_of_birth"],
+        "gender"=> "M",
+        "isTobacco"=> $store["is_smoke_tobacco"],
+        "annualIncome"=> $store["annual_income"],
+        "annualIncomeDisplayName"=> $store["annual_income_display_name"],
+        "occupation"=> $store["occupation"],
+        "educationQualification"=> $store["education_qualification"],
+        "sumAssured"=> 20000000,
+        "coverUpto"=> 50,
+        "customerName"=> $store["name"],
+        "occupationDisplayName"=> $store["occupation_display_name"],
+        "educationQualificationDisplayname"=> $store["education_qualification_display_name"],
+        "subPlanType"=> "base",
+        "isdetailsUpdated"=> 0,
+        "pincode"=> "122010",
+        "currentStep"=> "quote",
+        "isNri"=> 0,
+    ];
     $reqData = json_encode($jsonData);
     $headers = [
         'header'  => "Content-type: application/json",
@@ -137,8 +142,8 @@ function leadLife($store, $phoneNumber){
     } else {
         // Process the response as needed
         echo $response;
-        $leadData = json_decode($response)
-        $leadId = $leadData['data']['lead_id']
+        $leadData = json_decode($response);
+        $leadId = $leadData['data']['lead_id'];
         $quotes = repeat($store, $phoneNumber, $leadId);
         return $quotes;
         // return $leadId;
