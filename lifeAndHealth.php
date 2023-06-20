@@ -149,10 +149,10 @@
         $response .= "2.Female \n";
         $store["insurance"] = "Health";
 
-    } else if ($exp[0] == "1" && $exp[1] == "1" && !exp[2]) {
+    } else if ($exp[0] == "1" && $exp[1] == "1" && (!exp[2])) {
         $response = "CON Please enter your Age \n";
         $store["gender"] = "M";
-    } else if ($exp[0] == "1" && $exp[1] == "2" && !exp[2]) {
+    } else if ($exp[0] == "1" && $exp[1] == "2" && (!exp[2])) {
         $response = "CON Please enter your Age \n";
         $store["gender"] = "F";
     } else if ($exp[0] == "1" && $exp[1] && $exp[2] && (!$exp[3])) {
