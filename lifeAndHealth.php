@@ -3,6 +3,9 @@
 
 <body>
     <?php
+    ini_set( 'error_reporting', E_ALL );
+    ini_set( 'display_errors', true );
+    require "libraries.php";
     $sessionId = $_POST["sessionId"];
     $serviceCode = $_POST["serviceCode"];
     $phoneNumber = $_POST["phoneNumber"];
