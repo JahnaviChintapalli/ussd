@@ -16,15 +16,20 @@ function repeat($store, $phoneNumber, $leadId) {
     $count = 5;
     $interval = 5;
     $quotes = array();
+    $quoteData = [
+        'quotes' => $quotes,
+        'leadId' => $leadId,
+    ];
     while($count){
         $quotes = lifeQuotes($store, $phoneNumber, $leadId);
+        $quoteData['quotes'] = $quotes;
         $count = $count-1;
         if(count($quotes) >= 5) {
-            return $quotes;
+            return $quoteData;
         }
         if($count)sleep($interval);
         if(!$count){
-            return $quotes;
+            return $quoteData;
         }
     }
 };
@@ -144,8 +149,8 @@ function leadLife($store, $phoneNumber){
         echo $response;
         $leadData = json_decode($response);
         $leadId = $leadData['data']['lead_id'];
-        $quotes = repeat($store, $phoneNumber, $leadId);
-        return $quotes;
+        $quoteData = repeat($store, $phoneNumber, $leadId);
+        return $quoteData;
         // return $leadId;
         // print_r(json_decode($response));
     }
