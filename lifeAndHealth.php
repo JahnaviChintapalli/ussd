@@ -13,7 +13,7 @@
 
     $exp = explode('*', $text);
     $store = array();
-    $quotes = array();
+    $quoteData = array();
 
     if ($text == "") {
         $response = "CON Please select your Insurance type \n";
@@ -110,7 +110,8 @@
     } else if ($exp[0] == "2" && (($exp[8]) === "1") && (!$exp[9])) {
         $store["education_qualification"] = "G";
         $store["education_qualification_display_name"] = "College Graduate & above";
-        $quotes = leadLife($store, $phoneNumber);
+        $quoteData = leadLife($store, $phoneNumber);
+        $quotes = $quoteData['quotes'];
         $response = "CON Top 5 Quotes for You";
         for($i = 0; $i < count($quotes); $i++){
             $response .= $i . '.' . $quotes[$i]["subPlanName"];
@@ -118,7 +119,8 @@
     } else if ($exp[0] == "2" && (($exp[8]) === "2") && (!$exp[9])) {
         $store["education_qualification"] = "HSC";
         $store["education_qualification_display_name"] = "12th Pass";
-        $quotes = leadLife($store, $phoneNumber);
+        $quoteData = leadLife($store, $phoneNumber);
+        $quotes = $quoteData['quotes'];
         $response = "CON Top 5 Quotes for You";
         for($i = 0; $i < count($quotes); $i++){
             $response .= $i . '.' . $quotes[$i]["subPlanName"];
@@ -126,14 +128,17 @@
     } else if ($exp[0] == "2" && (($exp[8]) === "3") && (!$exp[9])) {
         $store["education_qualification"] = "PM";
         $store["education_qualification_display_name"] = "10th Pass & below";
-        $quotes = leadLife($store, $phoneNumber);
+        $quoteData = leadLife($store, $phoneNumber);
+        $quotes = $quoteData['quotes'];
         $response = "CON Top 5 Quotes for You";
         for($i = 0; $i < count($quotes); $i++){
             $response .= $i . '.' . $quotes[$i]["subPlanName"];
         };
     } else if ($exp[0] == "2" && ($exp[9]) && (!$exp[10])) {
         $num = (int)$exp[9];
-        $store["quote_id"] = $quote[$num-1]["planId"]; 
+        $quotes = $quoteData['quotes'];
+        $store["quote_id"] = $quotes[$num-1]["planId"];
+        $store["lead_id"] = $quoteData['leadId']; 
         $response = "CON Confirmation for policy booking \n";
         $response .= "1.Yes \n";
         $response .= "2.No \n";
