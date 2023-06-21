@@ -196,8 +196,8 @@
         $response .= "1.Yes \n";
         $response .= "2.No \n";
     } else if ($exp) {
-        if(($exp[0] == '1' && $exp[7]) || ($exp[0] == '2' && $exp[10]){
-            if($exp[7] == "1")$store["confirm"] = 1;
+        if(($exp[0] == '1' && $exp[7]) || ($exp[0] == '2' && $exp[10])){
+            if(($exp[0] == '1' && $exp[7] == '1') || ($exp[0] == '2' && $exp[10] == '1')) $store["confirm"] = 1;
             else $store["confirm"] = 0;
         }
         $response = "END Thank you for your response";
