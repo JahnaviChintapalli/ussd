@@ -103,29 +103,29 @@
         $store["education_qualification"] = "G";
         $store["education_qualification_display_name"] = "College Graduate & above";
         $response = "CON Top 5 Quotes for You \n";
-        $response .= "1.ICICI - 1500/- \n";
-        $response .= "2.HDFC -  2000/- \n";
-        $response .= "3.Digit - 1670/- \n";
-        $response .= "4.Max -  1450/- \n";
-        $response .= "5.Chola - 1388/- \n";
+        $response .= "1.HDFC Life   - 8,892/- \n";
+        $response .= "2.Max Life    - 8,133/- \n";
+        $response .= "3.ICIC        - 8,705/- \n";
+        $response .= "4.PNB MetLife - 7,316/- \n";
+        $response .= "5.AegonLife   - 6,591/- \n";
     } else if ($exp[0] == "2" && (($exp[8]) === "2") && (!$exp[9])) {
         $store["education_qualification"] = "HSC";
         $store["education_qualification_display_name"] = "12th Pass";
         $response = "CON Top 5 Quotes for You \n";
-        $response .= "1.ICICI - 1500/- \n";
-        $response .= "2.HDFC -  2000/- \n";
-        $response .= "3.Digit - 1670/- \n";
-        $response .= "4.Max -  1450/- \n";
-        $response .= "5.Chola - 1388/- \n";
+        $response .= "1.HDFC Life   - 8,892/- \n";
+        $response .= "2.Max Life    - 8,133/- \n";
+        $response .= "3.ICIC        - 8,705/- \n";
+        $response .= "4.PNB MetLife - 7,316/- \n";
+        $response .= "5.AegonLife   - 6,591/- \n";
     } else if ($exp[0] == "2" && (($exp[8]) === "3") && (!$exp[9])) {
         $store["education_qualification"] = "PM";
         $store["education_qualification_display_name"] = "10th Pass & below";
         $response = "CON Top 5 Quotes for You \n";
-        $response .= "1.ICICI - 1500/- \n";
-        $response .= "2.HDFC -  2000/- \n";
-        $response .= "3.Digit - 1670/- \n";
-        $response .= "4.Max -  1450/- \n";
-        $response .= "5.Chola - 1388/- \n";
+        $response .= "1.HDFC Life   - 8,892/- \n";
+        $response .= "2.Max Life    - 8,133/- \n";
+        $response .= "3.ICIC        - 8,705/- \n";
+        $response .= "4.PNB MetLife - 7,316/- \n";
+        $response .= "5.AegonLife   - 6,591/- \n";
     } else if ($exp[0] == "2" && ($exp[9]) && (!$exp[10])) {
         $store["quote"] = $exp[9];
         $response = "CON Confirmation for policy booking \n";
@@ -168,27 +168,27 @@
         $store["pincode"] = $exp[4];
     } else if ($exp[0] == "1" && $exp[5] == "1" && (!$exp[6])) {
         $response = "CON Top 5 quotes for You \n";
-        $response .= "1.ICICI - 1500/- \n";
-        $response .= "2.HDFC -  2000/- \n";
-        $response .= "3.Digit - 1670/- \n";
-        $response .= "4.Max -  1450/- \n";
-        $response .= "5.Chola - 1388/- \n";
+        $response .= "1.Niva Bupa    - 9,985/- \n";
+        $response .= "2.Aditya Birla - 8,787/- \n";
+        $response .= "3.Reliance     - 7,567/- \n";
+        $response .= "4.Care Health  - 6,849/- \n";
+        $response .= "5.Star Health  - 5,375/- \n";
         $store["SumInsured"] = "500000";
     } else if ($exp[0] == "1" && $exp[5] == "2" && (!$exp[6])) {
         $response = "CON Top 5 quotes for You \n";
-        $response .= "1.ICICI - 1500/- \n";
-        $response .= "2.HDFC -  2000/- \n";
-        $response .= "3.Digit - 1670/- \n";
-        $response .= "4.Max -  1450/- \n";
-        $response .= "5.Chola - 1388/- \n";
+        $response .= "1.Niva Bupa    - 9,985/- \n";
+        $response .= "2.Aditya Birla - 8,787/- \n";
+        $response .= "3.Reliance     - 7,567/- \n";
+        $response .= "4.Care Health  - 6,849/- \n";
+        $response .= "5.Star Health  - 5,375/- \n";
         $store["SumInsured"] = "1000000";
     } else if ($exp[0] == "1" && $exp[5] == "3" && (!$exp[6])) {
         $response = "CON Top 5 quotes for You \n";
-        $response .= "1.ICICI - 1500/- \n";
-        $response .= "2.HDFC -  2000/- \n";
-        $response .= "3.Digit - 1670/- \n";
-        $response .= "4.Max -  1450/- \n";
-        $response .= "5.Chola - 1388/- \n";
+        $response .= "1.Niva Bupa    - 9,985/- \n";
+        $response .= "2.Aditya Birla - 8,787/- \n";
+        $response .= "3.Reliance     - 7,567/- \n";
+        $response .= "4.Care Health  - 6,849/- \n";
+        $response .= "5.Star Health  - 5,375/- \n";
         $store["SumInsured"] = "1500000";
     } else if ($exp[0] == "1" && ($exp[6]) && (!$exp[7])) {
         $store["quote"] = $exp[6];
