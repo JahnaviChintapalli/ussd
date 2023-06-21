@@ -102,7 +102,7 @@
     } else if ($exp[0] == "2" && (($exp[8]) === "1") && (!$exp[9])) {
         $store["education_qualification"] = "G";
         $store["education_qualification_display_name"] = "College Graduate & above";
-        $response = "CON Top 5 Quotes for You";
+        $response = "CON Top 5 Quotes for You \n";
         $response .= "1.ICICI - 1500/- \n";
         $response .= "2.HDFC -  2000/- \n";
         $response .= "3.Digit - 1670/- \n";
@@ -111,7 +111,7 @@
     } else if ($exp[0] == "2" && (($exp[8]) === "2") && (!$exp[9])) {
         $store["education_qualification"] = "HSC";
         $store["education_qualification_display_name"] = "12th Pass";
-        $response = "CON Top 5 Quotes for You";
+        $response = "CON Top 5 Quotes for You \n";
         $response .= "1.ICICI - 1500/- \n";
         $response .= "2.HDFC -  2000/- \n";
         $response .= "3.Digit - 1670/- \n";
@@ -120,7 +120,7 @@
     } else if ($exp[0] == "2" && (($exp[8]) === "3") && (!$exp[9])) {
         $store["education_qualification"] = "PM";
         $store["education_qualification_display_name"] = "10th Pass & below";
-        $response = "CON Top 5 Quotes for You";
+        $response = "CON Top 5 Quotes for You \n";
         $response .= "1.ICICI - 1500/- \n";
         $response .= "2.HDFC -  2000/- \n";
         $response .= "3.Digit - 1670/- \n";
