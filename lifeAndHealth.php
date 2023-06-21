@@ -179,18 +179,38 @@
         $store["pincode"] = $exp[4];
     } else if ($exp[0] == "1" && $exp[5] == "1" && (!$exp[6])) {
         $response = "CON Top 5 quotes for You \n";
+        $response .= "1.ICICI - 1500/- \n";
+        $response .= "2.HDFC -  2000/- \n";
+        $response .= "3.Digit - 1670/- \n";
+        $response .= "4.Max -  1450/- \n";
+        $response .= "5.Chola - 1388/- \n" ;
         $store["SumInsured"] = "500000";
     } else if ($exp[0] == "1" && $exp[5] == "2" && (!$exp[6])) {
         $response = "CON Top 5 quotes for You \n";
+        $response .= "1.ICICI - 1500/- \n";
+        $response .= "2.HDFC -  2000/- \n";
+        $response .= "3.Digit - 1670/- \n";
+        $response .= "4.Max -  1450/- \n";
+        $response .= "5.Chola - 1388/- \n" ;
         $store["SumInsured"] = "1000000";
     } else if ($exp[0] == "1" && $exp[5] == "3" && (!$exp[6])) {
         $response = "CON Top 5 quotes for You \n";
+        $response .= "1.ICICI - 1500/- \n";
+        $response .= "2.HDFC -  2000/- \n";
+        $response .= "3.Digit - 1670/- \n";
+        $response .= "4.Max -  1450/- \n";
+        $response .= "5.Chola - 1388/- \n" ;
         $store["SumInsured"] = "1500000";
-    } else if ($exp[0] == "3" && ($exp[7]) && (!$exp[8])) {
+    } else if ($exp[0] == "1" && ($exp[6]) && (!$exp[7])) {
+        $store["quotes"] = $exp[6];
         $response = "CON Confirmation for policy booking \n";
         $response .= "1.Yes \n";
         $response .= "2.No \n";
     } else if ($exp) {
+        if($exp[0] == '1' && $exp[7]){
+            if($exp[7] == "1")$store["confirm"] = 1;
+            else $store["confirm"] = 0;
+        }
         $response = "END Thank you for your response";
     }
     header('Content-type:text/plain');
