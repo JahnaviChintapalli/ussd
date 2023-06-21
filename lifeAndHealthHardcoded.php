@@ -195,11 +195,21 @@
         $response = "CON Confirmation for policy booking \n";
         $response .= "1. Yes \n";
         $response .= "2. No \n";
+    } else if (($exp[0] == '1' && $exp[7] == '1') || ($exp[0] == '2' && $exp[10] == '1')) {
+        $store["confirm"] = 1;
+        $response = "END You can now proceed for making payment by running *99# and paying to mobile number 9561786547";
+    } else if (($exp[0] == '1' && $exp[7] == '2' && !$exp[8]) || ($exp[0] == '2' && $exp[10] == '2' && !$exp[11])){
+        $store["confirm"] = 0;
+        $response = "CON Do you want agent to visit and explain the policies? \n";
+        $response .= "1. Yes \n";
+        $response .= "2. No \n";
+    } else if (($exp[0] == '1' && $exp[8] == '1') || ($exp[0] == '2' && $exp[11] == '1')) {
+        $store['agent'] = '1';
+        $response = "END Your response has been saved, agent will contact you shortly";
+    } else if (($exp[0] == '1' && $exp[8] == '2') || ($exp[0] == '2' && $exp[11] == '2')) {
+        $store['agent'] = '2';
+        $response = "END Thank you, wish to serve you next time";
     } else if ($exp) {
-        if(($exp[0] == '1' && $exp[7]) || ($exp[0] == '2' && $exp[10])){
-            if(($exp[0] == '1' && $exp[7] == '1') || ($exp[0] == '2' && $exp[10] == '1')) $store["confirm"] = 1;
-            else $store["confirm"] = 0;
-        }
         $response = "END Thank you for your response";
     }
     header('Content-type:text/plain');
