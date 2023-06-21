@@ -1,17 +1,4 @@
 <?php
-
-function greetings() {
-    echo "Hello World!";
-};
-
-
-
-// $interval = 5; // Interval in seconds
-
-// while (true) {
-//     doAction();
-//     sleep($interval);
-// }
 function repeat($store, $phoneNumber, $leadId) {
     $count = 5;
     $interval = 5;
@@ -35,8 +22,6 @@ function repeat($store, $phoneNumber, $leadId) {
 };
 
 function lifeQuotes($store, $phoneNumber, $leadId) {
-    echo 'in life quotes';
-    // if(!$leadId)$leadId = leadLife($store, $phoneNumber);
     $apiUrl = 'https://leadmiddlewarestaging.insurancedekho.com/api/life/v1/quotes?'; 
 
     $jsonData = [
@@ -81,7 +66,6 @@ function lifeQuotes($store, $phoneNumber, $leadId) {
     if ($response === false) {
         echo 'Error: ' . curl_error($curl);
     } else {
-        echo $response;
         $quoteData = json_decode($response);
         $quotes = $quoteData['data']['quotes'];
         return $quotes;
@@ -91,8 +75,6 @@ function lifeQuotes($store, $phoneNumber, $leadId) {
 };
 
 function leadLife($store, $phoneNumber){
-    echo 'in lead life';
-
     $apiUrl = "https://leadmiddlewarestaging.insurancedekho.com/api/life/v1/lead";
 
     $jsonData = [
@@ -145,60 +127,12 @@ function leadLife($store, $phoneNumber){
     if ($response === false) {
         echo 'Error: ' . curl_error($curl);
     } else {
-        // Process the response as needed
-        echo $response;
         $leadData = json_decode($response);
         $leadId = $leadData['data']['lead_id'];
         $quoteData = repeat($store, $phoneNumber, $leadId);
         return $quoteData;
-        // return $leadId;
-        // print_r(json_decode($response));
     }
 
     curl_close($curl);
 };
-
-
-function healthQuotes() {
-    echo 'in health quotes';
-    $apiUrl = "https://healthquotestage.girnarinsurance.com/health/quotes/get-quotes";
-
-    $jsonData = [
-        "visit_id"=> "64903d72adc22612bd274f49",
-        "updated"=> false,
-        "group_id"=> 1,
-        "plan_type"=> "base",
-        "nstp_plans"=> "true",
-        "portable_plans"=> false,
-        "groupBy"=> "insurers",
-        "prefer_plan_type"=> "base",
-        "source"=> "AGENCY",
-        "sub_source"=> "POS",
-        "medium"=> "POS",
-    ];
-    $reqData = json_encode($jsonData);
-
-    $headers = [
-        'header'  => "Content-type: application/json",
-    ];
-    $curl = curl_init($apiUrl);
-    curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, $reqData);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-    $response = curl_exec($curl);
-
-    if ($response === false) {
-        echo 'Error: ' . curl_error($curl);
-    } else {
-        // Process the response as needed
-        echo $response;
-        // print_r(json_decode($response));
-    }
-
-    curl_close($curl);
-
-};
-
-
 ?>
